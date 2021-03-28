@@ -14,7 +14,6 @@ import { isAuth, signout } from "../auth/Helper";
 const useStyles = makeStyles({
   navDisplayFlex: {
     display: `flex`,
-    justifyContent: `space-between`,
   },
   linkText: {
     textDecoration: `none`,
@@ -23,7 +22,6 @@ const useStyles = makeStyles({
   },
   navbarDisplayFlex: {
     display: `flex`,
-    justifyContent: `space-between`,
   },
 });
 
@@ -54,6 +52,20 @@ const Navbar = ({ children, match, history }) => {
                   </Link>
                 </ListItem>
               )}
+              {isAuth() && isAuth().role === "subscriber" && (
+                <ListItem button>
+                  <Link to="/private" className={classes.linkText}>
+                    <ListItemText primary={isAuth().name}></ListItemText>
+                  </Link>
+                </ListItem>
+              )}
+              {isAuth() && isAuth().role === "admin" && (
+                <ListItem button>
+                  <Link to="/admin" className={classes.linkText}>
+                    <ListItemText primary={isAuth().name}></ListItemText>
+                  </Link>
+                </ListItem>
+              )}
               {isAuth() && (
                 <ListItem
                   button
@@ -64,7 +76,7 @@ const Navbar = ({ children, match, history }) => {
                     });
                   }}
                 >
-                  <ListItemText primary="SignOut"></ListItemText>
+                  <ListItemText primary="SIGNOUT"></ListItemText>
                 </ListItem>
               )}
             </List>
@@ -75,7 +87,7 @@ const Navbar = ({ children, match, history }) => {
   };
 
   return (
-    <div>
+    <div className={classes.navDisplayFlex}>
       {" "}
       {nav()}
       <div className="container">{children}</div>
