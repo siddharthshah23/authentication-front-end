@@ -9,6 +9,8 @@ import Private from "./auth/Private";
 import Admin from "./auth/Admin";
 import PrivateRoute from "./auth/PrivateRoute";
 import AdminRoute from "./auth/AdminRoute";
+import ForgotPassword from "./layout/ForgotPassword";
+import ResetPassword from "./layout/ResetPassword";
 
 const App = () => {
   return (
@@ -18,7 +20,13 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={SignIn} />
+        <Route exact path="/auth/password/forgot" component={ForgotPassword} />
         <Route exact path="/auth/activate/:token" component={ActivateAccount} />
+        <Route
+          exact
+          path="/auth/password/reset/:token"
+          component={ResetPassword}
+        />
         <PrivateRoute exact path="/private" component={Private} />
         <AdminRoute exact path="/admin" component={Admin} />
       </Switch>
