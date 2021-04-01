@@ -37,8 +37,8 @@ export default function ForgotPassword({ history }) {
   const classes = useStyles();
 
   const [values, setValues] = useState({
-    email: "test@test.com",
-    buttonText: "submit",
+    email: "",
+    buttonText: "",
   });
 
   const handleChange = (name) => (event) => {

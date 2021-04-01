@@ -51,8 +51,8 @@ export default function SignUp() {
   const classes = useStyles();
 
   const [values, setValues] = useState({
-    name: "Sid",
-    email: "siddharthshah23@outlook.com",
+    name: "",
+    email: "",
     password: "appleapple",
     buttonText: "submit",
   });

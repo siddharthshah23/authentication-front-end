@@ -54,8 +54,8 @@ export default function SignIn({ history }) {
   const classes = useStyles();
 
   const [values, setValues] = useState({
-    email: "test@test.com",
-    password: "testtest",
+    email: "",
+    password: "",
     buttonText: "submit",
   });
 
